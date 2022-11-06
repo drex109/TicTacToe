@@ -78,7 +78,17 @@ def playerMove1(board):
     # show board layout with selection numbers
     selectionBoard = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print('\n'+'1|2|3'+'\n'+'-----'+'\n'+'4|5|6'+'\n'+'-----'+'\n'+'7|8|9'+'\n')
-    playerInput1 = input('Player 1, please selct a postiion on the board: ')
+    while True:
+        playerInput1 = input('Player 1, please selct a postiion on the board: ')
+        if playerInput1.isdigit() == True:
+            if int(playerInput1) > 0 and int(playerInput1) < 10:
+                break
+            else:
+                print('ERROR: Choose number between 1 and 9')
+                continue
+        else:
+            print('ERROR: Choose number between 1 and 9')
+            continue
     # compare player input to selection board and change the board accordingly
     for x in range(0, 3):
         for y in range(0, 3):
@@ -93,7 +103,17 @@ def playerMove2(board):
     # show board layout with selection numbers
     selectionBoard = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print('\n'+'1|2|3'+'\n'+'-----'+'\n'+'4|5|6'+'\n'+'-----'+'\n'+'7|8|9'+'\n')
-    playerInput2 = input('Player 2, please selct a postiion on the board: ')
+    while True:
+        playerInput2 = input('Player 2, please selct a postiion on the board: ')
+        if playerInput2.isdigit() == True:
+            if int(playerInput2) > 0 and int(playerInput2) < 10:
+                break
+            else:
+                print('ERROR: Choose number between 1 and 9')
+                continue
+        else:
+            print('ERROR: Choose number between 1 and 9')
+            continue
     # compare player input to selection board and change the board accordingly
     for x in range(0, 3):
         for y in range(0, 3):
@@ -111,8 +131,10 @@ def runGame():
     while running:
         boardRender(board)
         playerMove1(board)
+        boardRender(board)
         checkBoard(board)
         boardRender(board)
         playerMove2(board)
+        boardRender(board)
         checkBoard(board)
 runGame()
